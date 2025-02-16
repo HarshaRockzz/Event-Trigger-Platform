@@ -19,6 +19,8 @@ Deployed Application: [Event Trigger Platform](https://event-trigger-platform-2-
 - [Manual Testing](#manual-testing)
 - [Running the Project](#running-the-project)
 - [Deployment](#deployment)
+- [Example API Requests](#example-api-requests)
+- [Production Cost Estimation](#production-cost-estimation)
 
 ---
 
@@ -97,4 +99,92 @@ This project is deployed on **Render**. Access the live application here:
 
 ---
 
+## Example API Requests
+
+### 1. Full Payload Example
+```json
+{
+  "name": "Test Trigger - Full Payload",
+  "trigger_type": "api",
+  "schedule_time": "2025-02-15T17:26:31.342Z",
+  "api_payload": {
+    "additionalProp1": "value1",
+    "additionalProp2": "value2",
+    "additionalProp3": "value3"
+  }
+}
+```
+
+### 2. Valid Example with Scheduled Trigger Type
+```json
+{
+  "name": "Scheduled Trigger",
+  "trigger_type": "scheduled",
+  "schedule_time": "2025-03-01T10:00:00.000Z"
+}
+```
+
+### 3. Valid Example with Empty Payload
+```json
+{
+  "name": "Empty Payload Trigger",
+  "trigger_type": "time-based",
+  "schedule_time": "2025-02-15T12:00:00.000Z",
+  "api_payload": {}
+}
+```
+
+### 4. Example with Only Name and Time
+```json
+{
+  "name": "Time Only Example",
+  "trigger_type": "time-based",
+  "schedule_time": "2025-02-20T08:30:00.000Z"
+}
+```
+
+### 5. Example with Nested Payload Fields
+```json
+{
+  "name": "Nested Payload Example",
+  "trigger_type": "api",
+  "api_payload": {
+    "config1": "value1",
+    "config2": "value2"
+  }
+}
+```
+
+### 6. Invalid Example (Missing trigger_type)
+```json
+{
+  "name": "Missing Trigger Type"
+}
+```
+**Expected Behavior:** API should return an error since `trigger_type` is required.
+
+### 7. Invalid Example (Invalid Trigger Type)
+```json
+{
+  "name": "Invalid Trigger Type Example",
+  "trigger_type": "invalid-type"
+}
+```
+**Expected Behavior:** API should return a validation error due to the pattern mismatch.
+
+---
+
+## Production Cost Estimation
+
+For running the system **24x7 for 30 days**, handling **5 queries per day**, the estimated cost breakdown is:
+
+- **Cloud Server (Render/VPS)**: $20 - $40 per month (depending on RAM/CPU requirements)
+- **PostgreSQL Database (Managed Service)**: $10 - $30 per month
+- **Redis (Managed Service)**: $5 - $15 per month
+- **Celery Worker (Compute Cost)**: $10 - $25 per month
+- **Miscellaneous (Storage, Logging, Monitoring, etc.)**: $5 - $10 per month
+
+**Total Estimated Monthly Cost:** **$50 - $120**
+
 Feel free to contribute by opening issues or submitting pull requests!
+
