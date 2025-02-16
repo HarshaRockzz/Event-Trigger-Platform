@@ -2,7 +2,7 @@
 
 This project is a scalable Event Trigger Platform built using **FastAPI**, **PostgreSQL**, **Redis**, **Celery**, and **Docker**. It supports CRUD operations for triggers and events, retention policies, and manual testing through a user-friendly interface.
 
-Deployed Application: [Event Trigger Platform](https://event-trigger-platform-2-16fs.onrender.com/docs)
+Deployed Application: [Event Trigger Platform](https://event-trigger-platform-7svu.onrender.com/docs)
 
 ## Features
 - **Event Triggers**: Create and manage event triggers (scheduled or API-based).
@@ -95,7 +95,7 @@ Access the API documentation at [http://localhost:8000/docs](http://localhost:80
 ## Deployment
 This project is deployed on **Render**. Access the live application here:
 
-[Event Trigger Platform](https://event-trigger-platform-2-16fs.onrender.com/docs)
+[Event Trigger Platform](https://event-trigger-platform-7svu.onrender.com/docs)
 
 ---
 
