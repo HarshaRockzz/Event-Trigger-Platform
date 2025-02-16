@@ -12,6 +12,9 @@ triggers = []
 archived_triggers = []  # Store archived triggers here
 trigger_id_counter = 1
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Event Trigger Platform!"}
 # Create a new trigger
 @app.post("/triggers/", response_model=TriggerRead)
 async def create_trigger(request: TriggerCreate):
